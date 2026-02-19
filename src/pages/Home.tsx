@@ -24,52 +24,24 @@ function Home() {
 
   useEffect(() => {
     const total = savedData.reduce((acc, item) => {
-      if (item.amountPlayer1) {
-        return acc + Number(item.amountPlayer1);
-      }
-      return acc;
+      return acc + Number(item.amountPlayer1);
     }, 0);
     setTotalPlayer1(total);
-  }, [savedData]);
 
-  useEffect(() => {
-    const total = savedData.reduce((acc, item) => {
-      if (item.amountPlayer2) {
-        return acc + Number(item.amountPlayer2);
-      } 
-      return acc;
+    const total1 = savedData.reduce((acc, item) => {
+      return acc + Number(item.amountPlayer2);
     }, 0);
-    setTotalPlayer2(total);
-  }, [savedData]);
+    setTotalPlayer2(total1);
 
-  useEffect(() => {
-    const total = savedData.reduce((acc, item) => {
-      if (item.amountPlayer3) {
-        return acc + Number(item.amountPlayer3);
-      }
-      return acc;
+    const total3 = savedData.reduce((acc, item) => {
+      return acc + Number(item.amountPlayer3);
     }, 0);
-    setTotalPlayer3(total);
-  }, [savedData]);
+    setTotalPlayer3(total3);
 
-  useEffect(() => {
-    const total = savedData.reduce((acc, item) => {
-      if (item.amountPlayer4) {
-        return acc + Number(item.amountPlayer4);
-      }
-      return acc;
+    const total4 = savedData.reduce((acc, item) => {
+      return acc + Number(item.amountPlayer4);
     }, 0);
-    setTotalPlayer4(total);
-  }, [savedData]);
-
-  useEffect(() => {
-    const total = savedData.reduce((acc, item) => {
-      if (item.amountPlayer4 ) {
-        return acc + Number(item.amountPlayer4);
-      }
-      return acc;
-    }, 0);
-    setTotalPlayer4(total);
+    setTotalPlayer4(total4);
   }, [savedData]);
 
   const deleteMovement = (indexToDelete: number) => {
@@ -85,6 +57,7 @@ function Home() {
           <table className='tableMoviments'>
             <thead>
               <tr>
+                <th></th>
                 <th>TONI</th>
                 <th>MATEO</th>
                 <th>LUIS</th>
@@ -95,21 +68,22 @@ function Home() {
             <tbody>
             {savedData.map((item, index) => (
               <tr key={index}>
-                 <th>{Number(item.amountPlayer1)}</th>
-                  <th>{Number(item.amountPlayer2)}</th>
-                  <th>{Number(item.amountPlayer3)}</th>
-                  <th>{Number(item.amountPlayer4)}</th>
-                  <th><button onClick={() => deleteMovement(index)}>Eliminar</button></th>
-                </tr>
+                <th><button onClick={() => deleteMovement(index)}>❌</button></th>
+                <th>{Number(item.amountPlayer1)}</th>
+                <th>{Number(item.amountPlayer2)}</th>
+                <th>{Number(item.amountPlayer3)}</th>
+                <th>{Number(item.amountPlayer4)}</th>
+              </tr>
             ))}
             </tbody>
 
             <tfoot>
               <tr>
-                <th>TOTAL {totalPlayer1}</th>
-                <th>TOTAL {totalPlayer2}</th>
-                <th>TOTAL {totalPlayer3}</th>
-                <th>TOTAL {totalPlayer4}</th>
+                <th>TOTAL</th>
+                <th>{totalPlayer1}</th>
+                <th>{totalPlayer2}</th>
+                <th>{totalPlayer3}</th>
+                <th>{totalPlayer4}</th>
               </tr>
             </tfoot>
           </table>

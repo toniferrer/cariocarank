@@ -7,7 +7,7 @@ function About() {
     <>
       <MyHeader />
       <div className="card">
-        <p>MateBudget es un poryecto creado por Toni Ferrer y de uso totalmente gratuito.</p>
+        <p>Carioca Rank es un poryecto creado por Toni Ferrer y de uso totalmente gratuito.</p>
       </div>
       <MyFooter />
     </>
