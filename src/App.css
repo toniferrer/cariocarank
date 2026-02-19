@@ -1,0 +1,121 @@
+#root {
+  max-width: 1280px;
+  min-height: 100vh;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+  font-family: 'Courier New', Courier, monospace;
+}
+
+.card {
+  padding: 2em;
+}
+
+.header {
+  display: inline-flex;
+  justify-content: space-between;
+  padding: 20px;
+  background-color: rgb(242, 242, 242);
+  width: 1280px;
+}
+
+.header h1 {
+  color: black;
+  font-size: 20px;
+}
+
+.tableMoviments {
+  width: 100%;
+  padding: 20px;
+  color: black;
+}
+
+.tableMoviments thead {
+  background-color: rgb(225, 225, 225);
+  height: 40px;
+}
+
+.tableMoviments tbody {
+  background-color: rgb(247, 247, 247);
+}
+
+.tableMoviments th{
+  text-align: left;
+  padding-left: 10px;
+}
+
+.tableMoviments tfoot {
+  background-color: rgb(225, 225, 225);
+  height: 40px;
+}
+
+.ingreso {
+  color: green;
+}
+
+.gasto {
+  color: brown;
+}
+
+.buttonDelet {
+  color: black;
+  background-color: white;
+  margin: 5px;
+  padding: 5px;
+  border-radius: 2px;
+  border-style: none;
+}
+
+.buttonDelet:hover {
+  color: white;
+  background-color: brown;
+  margin: 5px;
+  padding: 5px;
+  border-radius: 2px;
+  border-style: none;
+}
+
+.form { 
+  padding: 20px;
+}
+
+.form input {
+  border-style: none;
+  background-color: rgb(247, 247, 247);
+  padding: 10px;
+  color: black;
+}
+
+.form select {
+  border-style: none;
+  background-color: rgb(247, 247, 247);
+  padding: 10px;
+}
+
+.formSection label {
+  width: 100%;
+  display: block;
+}
+
+.formButton {
+  margin: 10px;
+  background-color: rgb(234, 234, 234);
+  color: black;
+}
+
+.footer {
+  display: inline-flex;
+  justify-content: space-between;
+  background-color: rgb(242, 242, 242);
+  color: black;
+  padding: 20px;
+  width: 1280px;
+}
+
+.footer p {
+  color: black;
+}
+
+.footer-link {
+  color: black;
+}
