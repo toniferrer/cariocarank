@@ -16,6 +16,10 @@ function Home() {
   const [totalPlayer2, setTotalPlayer2] = useState(0);
   const [totalPlayer3, setTotalPlayer3] = useState(0);
   const [totalPlayer4, setTotalPlayer4] = useState(0);
+  const [namePlayer1] = useState("Toni");
+  const [namePlayer2] = useState("Luis");
+  const [namePlayer3] = useState("Mateo");
+  const [namePlayer4] = useState("Nati");
 
   useEffect(() => {
     const data = JSON.parse(localStorage.getItem('formData') || '[]') as FormData[];
@@ -23,27 +27,18 @@ function Home() {
   }, []);
 
   useEffect(() => {
-    const total = savedData.reduce((acc, item) => {
-      return acc + Number(item.amountPlayer1);
-    }, 0);
-    setTotalPlayer1(total);
+    //Calculamos los totales de cada jugador sumando los movimientos.
+    const calculateTotal = (prop) => {
+      return savedData.reduce((acc, item) => acc + Number(item[prop]), 0);
+    };
 
-    const total1 = savedData.reduce((acc, item) => {
-      return acc + Number(item.amountPlayer2);
-    }, 0);
-    setTotalPlayer2(total1);
-
-    const total3 = savedData.reduce((acc, item) => {
-      return acc + Number(item.amountPlayer3);
-    }, 0);
-    setTotalPlayer3(total3);
-
-    const total4 = savedData.reduce((acc, item) => {
-      return acc + Number(item.amountPlayer4);
-    }, 0);
-    setTotalPlayer4(total4);
+    setTotalPlayer1(calculateTotal('amountPlayer1'));
+    setTotalPlayer2(calculateTotal('amountPlayer2'));
+    setTotalPlayer3(calculateTotal('amountPlayer3'));
+    setTotalPlayer4(calculateTotal('amountPlayer4'));
   }, [savedData]);
 
+  //Función para eliminar un movimiento especifico.
   const deleteMovement = (indexToDelete: number) => {
     const updatedData = savedData.filter((_, index) => index !== indexToDelete);
     localStorage.setItem('formData', JSON.stringify(updatedData));
@@ -58,10 +53,10 @@ function Home() {
             <thead>
               <tr>
                 <th></th>
-                <th>TONI</th>
-                <th>MATEO</th>
-                <th>LUIS</th>
-                <th>NATI</th>
+                <th>{namePlayer1}</th>
+                <th>{namePlayer2}</th>
+                <th>{namePlayer3}</th>
+                <th>{namePlayer4}</th>
               </tr>
             </thead>
 
