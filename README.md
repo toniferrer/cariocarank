@@ -1,5 +1,5 @@
-# MateBudget 
-Controla tus finanzas personales. Pequeño proyecto de web-app para poder hacer un seguimineto de gastos, ingresos y otros.
+# Carioca Rank
+Haz un seguimiento y tabla de la puntuación de las partidas de cartas de Carioca, un juego muy popular en el Sur de América.
 
 ## ✨ Características
 Añadir y eliminar movimientos.
