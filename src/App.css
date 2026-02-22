@@ -16,6 +16,7 @@
 .header {
   display: inline-flex;
   justify-content: space-between;
+  align-items: center;
   padding: 20px;
   background-color: rgb(242, 242, 242);
   width: 1280px;
@@ -44,6 +45,7 @@
 .tableMoviments th{
   text-align: left;
   padding-left: 10px;
+  width: 20%;
 }
 
 .tableMoviments tfoot {
@@ -107,6 +109,7 @@
 
 .footer {
   display: inline-flex;
+  align-items: center;
   justify-content: space-between;
   background-color: rgb(242, 242, 242);
   color: black;

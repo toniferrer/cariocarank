@@ -20,7 +20,8 @@ function Home() {
   const [namePlayer2] = useState("Luis");
   const [namePlayer3] = useState("Mateo");
   const [namePlayer4] = useState("Nati");
-  const [vaGanando, setVaGanando] = useState(0);
+  const [minPoints, setMinPoints] = useState(0);
+  const [maxPoints, setMaxPoints] = useState(0);
 
   useEffect(() => {
     const data = JSON.parse(localStorage.getItem('formData') || '[]') as FormData[];
@@ -47,8 +48,17 @@ function Home() {
   };
 
   useEffect(() => {
-    setVaGanando(Math.min(totalPlayer1, totalPlayer2, totalPlayer3, totalPlayer4));
-  })
+    setMinPoints(Math.min(totalPlayer1, totalPlayer2, totalPlayer3, totalPlayer4));
+    setMaxPoints(Math.max(totalPlayer1, totalPlayer2, totalPlayer3, totalPlayer4));
+  });
+
+  function vaGanando (playerTotal: number) {
+    if(playerTotal === minPoints){
+      return playerTotal + "🏅";
+    } else {
+      return playerTotal;
+    }
+  };
 
   return (
     <>
@@ -69,7 +79,7 @@ function Home() {
             <tbody>
             {savedData.map((item, index) => (
               <tr key={index}>
-                <th><button onClick={() => deleteMovement(index)}>❌</button></th>
+                <th><button onClick={() => deleteMovement(index)}>🗑️</button></th>
                 <th>{Number(item.amountPlayer1)}</th>
                 <th>{Number(item.amountPlayer2)}</th>
                 <th>{Number(item.amountPlayer3)}</th>
@@ -81,10 +91,10 @@ function Home() {
             <tfoot>
               <tr>
                 <th>TOTAL</th>
-                <th>{totalPlayer1}</th>
-                <th>{totalPlayer2}</th>
-                <th>{totalPlayer3}</th>
-                <th>{totalPlayer4}</th>
+                <th>{vaGanando(totalPlayer1)}</th>
+                <th>{vaGanando(totalPlayer2)}</th>
+                <th>{vaGanando(totalPlayer3)}</th>
+                <th>{vaGanando(totalPlayer4)}</th>
               </tr>
             </tfoot>
           </table>
@@ -92,12 +102,17 @@ function Home() {
           <table className='tableMoviments'>
             <tr>
               <th>Puntuación menor</th>
-              <th>{vaGanando}</th>
+              <th>{minPoints}</th>
+              <th>Puntuación mayor</th>
+              <th>{maxPoints}</th>
             </tr>
           </table>
           </>
         ) : (
-          <p>No hay movimientos aún. Añade el primero.</p>
+          <>
+          <img height={150} src='https://cdn-icons-png.flaticon.com/512/1178/1178933.png' />
+          <p>No hay movimientos registrados aún. Añade el primero.</p>
+          </>
         )}
       <MyFooter />
     </>
