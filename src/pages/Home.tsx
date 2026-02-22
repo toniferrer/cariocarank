@@ -20,6 +20,7 @@ function Home() {
   const [namePlayer2] = useState("Luis");
   const [namePlayer3] = useState("Mateo");
   const [namePlayer4] = useState("Nati");
+  const [vaGanando, setVaGanando] = useState(0);
 
   useEffect(() => {
     const data = JSON.parse(localStorage.getItem('formData') || '[]') as FormData[];
@@ -45,10 +46,15 @@ function Home() {
     setSavedData(updatedData);
   };
 
+  useEffect(() => {
+    setVaGanando(Math.min(totalPlayer1, totalPlayer2, totalPlayer3, totalPlayer4));
+  })
+
   return (
     <>
       <MyHeader />
         {savedData.length > 0 ? (
+          <>
           <table className='tableMoviments'>
             <thead>
               <tr>
@@ -82,6 +88,14 @@ function Home() {
               </tr>
             </tfoot>
           </table>
+
+          <table className='tableMoviments'>
+            <tr>
+              <th>Puntuación menor</th>
+              <th>{vaGanando}</th>
+            </tr>
+          </table>
+          </>
         ) : (
           <p>No hay movimientos aún. Añade el primero.</p>
         )}
