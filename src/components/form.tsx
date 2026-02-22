@@ -53,7 +53,7 @@ interface FormData {
                 </div>
             </div>
             <div className='formSection'>
-                <label>Puntuación Mateo</label>
+                <label>Puntuación Luis</label>
                 <div>
                     <input
                     type="number"
@@ -65,7 +65,7 @@ interface FormData {
                 </div>
             </div>
             <div className='formSection'>
-                <label>Puntuación Luis</label>
+                <label>Puntuación Mateo</label>
                 <div>
                     <input
                     type="number"

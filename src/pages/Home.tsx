@@ -52,7 +52,7 @@ function Home() {
     setMaxPoints(Math.max(totalPlayer1, totalPlayer2, totalPlayer3, totalPlayer4));
   });
 
-  function vaGanando (playerTotal: number) {
+  const vaGanando = (playerTotal: number) => {
     if(playerTotal === minPoints){
       return playerTotal + "🏅";
     } else {
@@ -105,6 +105,7 @@ function Home() {
               <th>{minPoints}</th>
               <th>Puntuación mayor</th>
               <th>{maxPoints}</th>
+              <th>Dif. {maxPoints-minPoints}</th>
             </tr>
           </table>
           </>
